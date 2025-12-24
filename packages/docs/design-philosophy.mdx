@@ -1,0 +1,23 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Docs/Design Philosophy" />
+
+# Design Philosophy
+
+This design system is standards-first and accessibility-first.
+
+- Built on native Web Components: Custom Elements + Shadow DOM
+- Framework-agnostic: works with React/Vue/Angular/Svelte and vanilla JS
+- Performance: ES modules, preserved module structure, tree-shakeable
+- Strong DX: TypeScript, Storybook docs, testable, composable
+
+## Why Web Components
+
+Web Components provide encapsulation and portability across frameworks. Lit offers a minimal ergonomic layer over native APIs.
+
+## Principles
+
+- Simplicity over abstraction
+- WCAG 2.1 AA compliance by default
+- Tokenized styling via CSS custom properties
+- Theming without JavaScript requirements

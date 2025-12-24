@@ -1,0 +1,21 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Docs/Accessibility" />
+
+# Accessibility
+
+Accessibility is a core requirement, not an optional add-on.
+
+## Commitments
+
+- WCAG 2.1 AA contrast and semantics
+- Keyboard navigation and focus-visible styles
+- Screen reader friendly ARIA only when necessary
+- Automated checks with axe-core and Storybook a11y addon
+
+## Patterns
+
+- Prefer native elements (e.g., `<button>`) and semantics
+- Use `role` and `aria-*` only when needed
+- Visible focus: use `--yash-focus-ring-*` tokens
+- Respect `prefers-reduced-motion`

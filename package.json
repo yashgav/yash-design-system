@@ -1,0 +1,43 @@
+{
+    "name": "@yash-design-system/workspace",
+    "private": true,
+    "version": "0.1.0",
+    "description": "Monorepo for Yash Design System",
+    "workspaces": [
+        "packages/*"
+    ],
+    "scripts": {
+        "build": "npm run build -w yash-design-system",
+        "ci": "npm run lint && npm test",
+        "lint": "eslint . --ext .ts,.tsx --ignore-path .eslintignore",
+        "lint:fix": "eslint . --ext .ts,.tsx --ignore-path .eslintignore --fix",
+        "format": "prettier --write \"**/*.{ts,tsx,md,json,css}\"",
+        "fix:all": "prettier --write \"**/*.{ts,tsx,js,json,md,css,scss,html,mdx}\" && eslint . --ext .ts,.tsx --ignore-path .eslintignore --fix",
+        "format:check": "prettier --check \"**/*.{ts,tsx,md,json,css}\"",
+        "test": "web-test-runner --coverage",
+        "test:watch": "web-test-runner --watch",
+        "storybook": "storybook dev -p 6006",
+        "build-storybook": "storybook build"
+    },
+    "devDependencies": {
+        "eslint": "^8.56.0",
+        "prettier": "^3.2.4",
+        "eslint-config-prettier": "^9.1.0",
+        "@typescript-eslint/parser": "^6.19.0",
+        "@typescript-eslint/eslint-plugin": "^6.19.0",
+        "@storybook/addon-a11y": "^7.6.7",
+        "@storybook/addon-essentials": "^7.6.7",
+        "@storybook/addon-links": "^7.6.7",
+        "@storybook/blocks": "^7.6.7",
+        "@storybook/web-components": "^7.6.7",
+        "@storybook/web-components-vite": "^7.6.7",
+        "@web/test-runner": "^0.18.0",
+        "@web/test-runner-playwright": "^0.11.0",
+        "axe-core": "^4.9.0",
+        "storybook": "^7.6.7",
+        "typescript": "^5.3.3",
+        "@open-wc/testing": "^4.0.0",
+        "@esm-bundle/chai": "^4.3.4",
+        "@web/dev-server-esbuild": "^0.4.0"
+    }
+}

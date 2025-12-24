@@ -1,0 +1,13 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.tabSize": 4,
+  "editor.detectIndentation": false,
+  "eslint.validate": ["typescript", "javascript", "javascriptreact", "typescriptreact"],
+  "eslint.packageManager": "npm",
+  "files.exclude": {
+    "**/dist": true,
+    "**/node_modules": true,
+    "**/.history": true
+  }
+}

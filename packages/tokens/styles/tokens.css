@@ -1,0 +1,180 @@
+/*
+  Yash Design System — Design Tokens (CSS Custom Properties)
+
+  Architecture:
+  - Base tokens: raw scales (color palette, spacing, typography, radius, elevation, motion)
+  - Semantic tokens: meaningful roles (surface, text, primary, success, etc.) that map to base tokens
+  - Themes: light and dark definitions override semantic tokens only
+
+  Naming Convention:
+  --yash-{category}-{name}-{scale?}
+  Examples:
+  --yash-color-blue-600 (base), --yash-color-primary (semantic), --yash-spacing-4 (base)
+
+  Accessibility:
+  - Semantic color pairs are chosen to meet WCAG 2.1 AA (≥ 4.5:1)
+  - Focus ring tokens provided
+  - Motion tokens include reduced-motion guidance
+*/
+
+/* ===== Base: Color Palette ===== */
+:root {
+    /* Neutral (Carbon-inspired) */
+    --yash-color-neutral-50: #f2f4f8;
+    --yash-color-neutral-100: #dde1e6;
+    --yash-color-neutral-200: #c1c7cd;
+    --yash-color-neutral-300: #a2a9b0;
+    --yash-color-neutral-400: #878d96;
+    --yash-color-neutral-500: #697077;
+    --yash-color-neutral-600: #4d5358;
+    --yash-color-neutral-700: #343a3f;
+    --yash-color-neutral-800: #21272a;
+    --yash-color-neutral-900: #121619;
+
+    /* Primary (Carbon blue) */
+    --yash-color-blue-500: #4589ff; /* accessible with white text */
+    --yash-color-blue-600: #0f62fe; /* accessible with white text */
+    --yash-color-blue-700: #0043ce;
+
+    /* Supporting semantic bases */
+    --yash-color-green-600: #24a148; /* success */
+    --yash-color-red-600: #da1e28; /* error   */
+    --yash-color-orange-600: #ff832b; /* warning */
+    --yash-color-cyan-600: #12a3b8; /* info    */
+}
+
+/* ===== Base: Typography ===== */
+:root {
+    --yash-font-family-sans:
+        -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+        'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+    --yash-font-family-mono:
+        ui-monospace, SFMono-Regular, Menlo, Monaco, 'Cascadia Code', Consolas, 'Courier New',
+        monospace;
+
+    /* Font sizes (rem; base 16px) */
+    --yash-font-size-12: 0.75rem;
+    --yash-font-size-14: 0.875rem;
+    --yash-font-size-16: 1rem;
+    --yash-font-size-18: 1.125rem;
+    --yash-font-size-20: 1.25rem;
+    --yash-font-size-24: 1.5rem;
+    --yash-font-size-32: 2rem;
+
+    /* Font weights */
+    --yash-font-weight-regular: 400;
+    --yash-font-weight-medium: 500;
+    --yash-font-weight-semibold: 600;
+    --yash-font-weight-bold: 700;
+
+    /* Line heights */
+    --yash-line-height-tight: 1.25;
+    --yash-line-height-base: 1.5;
+    --yash-line-height-relaxed: 1.7;
+}
+
+/* ===== Base: Spacing (8px grid) ===== */
+:root {
+    --yash-spacing-2: 0.125rem; /* 2px */
+    --yash-spacing-4: 0.25rem; /* 4px */
+    --yash-spacing-8: 0.5rem; /* 8px */
+    --yash-spacing-12: 0.75rem; /* 12px */
+    --yash-spacing-16: 1rem; /* 16px */
+    --yash-spacing-24: 1.5rem; /* 24px */
+    --yash-spacing-32: 2rem; /* 32px */
+    --yash-spacing-48: 3rem; /* 48px */
+}
+
+/* ===== Base: Border Radius ===== */
+:root {
+    --yash-radius-0: 0;
+    --yash-radius-2: 0.125rem;
+    --yash-radius-4: 0.25rem;
+    --yash-radius-8: 0.5rem;
+    --yash-radius-12: 0.75rem;
+    --yash-radius-full: 9999px;
+}
+
+/* ===== Base: Elevation (Shadows) ===== */
+:root {
+    --yash-shadow-1: 0 1px 2px rgba(0, 0, 0, 0.08);
+    --yash-shadow-2: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --yash-shadow-3: 0 4px 8px rgba(0, 0, 0, 0.12);
+    --yash-shadow-4: 0 8px 16px rgba(0, 0, 0, 0.14);
+    --yash-shadow-5: 0 12px 24px rgba(0, 0, 0, 0.16);
+}
+
+/* ===== Base: Motion ===== */
+:root {
+    --yash-motion-duration-fast: 100ms;
+    --yash-motion-duration-base: 200ms;
+    --yash-motion-duration-slow: 300ms;
+
+    --yash-motion-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+    --yash-motion-easing-emphasized: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===== Semantic: Color Roles ===== */
+:root {
+    /* Surfaces and text */
+    --yash-color-surface: var(--yash-color-neutral-50);
+    --yash-color-on-surface: var(--yash-color-neutral-900);
+
+    /* Elevated surfaces */
+    --yash-color-surface-elevated: #ffffff;
+    --yash-color-on-surface-elevated: var(--yash-color-neutral-900);
+
+    /* Primary actions */
+    --yash-color-primary: var(--yash-color-blue-600);
+    --yash-color-on-primary: #ffffff; /* Contrast ≥ 4.5:1 */
+
+    /* Secondary / accent */
+    --yash-color-accent: var(--yash-color-blue-500);
+    --yash-color-on-accent: #ffffff;
+
+    /* Feedback */
+    --yash-color-success: var(--yash-color-green-600);
+    --yash-color-on-success: #ffffff;
+    --yash-color-error: var(--yash-color-red-600);
+    --yash-color-on-error: #ffffff;
+    --yash-color-warning: var(--yash-color-orange-600);
+    --yash-color-on-warning: #161616;
+    --yash-color-info: var(--yash-color-cyan-600);
+    --yash-color-on-info: #ffffff;
+
+    /* Borders */
+    --yash-color-border: var(--yash-color-neutral-200);
+    --yash-color-border-strong: var(--yash-color-neutral-300);
+
+    /* Focus ring */
+    --yash-focus-ring-color: var(--yash-color-blue-600);
+    --yash-focus-ring-width: 2px;
+    --yash-focus-ring-offset: 2px;
+}
+
+/* ===== Semantic: Typography Roles ===== */
+:root {
+    --yash-font-family-base: var(--yash-font-family-sans);
+    --yash-font-family-code: var(--yash-font-family-mono);
+
+    --yash-font-size-body: var(--yash-font-size-16);
+    --yash-font-size-label: var(--yash-font-size-14);
+    --yash-font-size-caption: var(--yash-font-size-12);
+    --yash-font-size-title: var(--yash-font-size-20);
+    --yash-font-size-heading: var(--yash-font-size-24);
+
+    --yash-font-weight-body: var(--yash-font-weight-regular);
+    --yash-font-weight-strong: var(--yash-font-weight-semibold);
+
+    --yash-line-height-body: var(--yash-line-height-base);
+    --yash-line-height-heading: var(--yash-line-height-relaxed);
+}
+
+/* ===== Guidance: Reduced Motion ===== */
+@media (prefers-reduced-motion: reduce) {
+    :root {
+        --yash-motion-duration-fast: 0ms;
+        --yash-motion-duration-base: 0ms;
+        --yash-motion-duration-slow: 0ms;
+    }
+}

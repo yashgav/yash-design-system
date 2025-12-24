@@ -1,0 +1,41 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Docs/Theming" />
+
+# Theming
+
+Design tokens are defined as CSS custom properties.
+
+- Base tokens: scales for color, spacing, typography, radius, elevation, motion
+- Semantic tokens: roles (surface, primary, success, etc.)
+- Themes: light/dark override semantic tokens only
+
+## Usage
+
+```ts
+import 'yash-design-system-tokens/styles/tokens.css';
+import 'yash-design-system-tokens/styles/themes/light.css';
+import 'yash-design-system-tokens/styles/themes/dark.css';
+```
+
+Toggle theme in Storybook via toolbar or set `data-theme`/class on a container:
+
+```html
+<body data-theme="dark">
+    <ui-button variant="primary">Dark</ui-button>
+</body>
+```
+
+## Override Examples
+
+```css
+:root {
+    --yash-color-primary: #0b5fff;
+    --yash-radius-8: 0.75rem;
+}
+
+.container {
+    --yash-color-surface: #ffffff;
+    --yash-color-on-surface: #161616;
+}
+```

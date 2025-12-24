@@ -1,0 +1,31 @@
+/* Dark theme overrides (semantic tokens only) */
+:root,
+.yash-theme-dark,
+[data-theme='dark'] {
+    --yash-color-surface: #161616;
+    --yash-color-on-surface: #f2f4f8;
+
+    --yash-color-surface-elevated: #262626;
+    --yash-color-on-surface-elevated: #f2f4f8;
+
+    --yash-color-primary: #0f62fe; /* remains accessible */
+    --yash-color-on-primary: #ffffff;
+
+    --yash-color-accent: #4589ff;
+    --yash-color-on-accent: #ffffff;
+
+    --yash-color-border: #343a3f;
+    --yash-color-border-strong: #4d5358;
+}
+
+/* Auto-apply dark theme based on user preference */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --yash-color-surface: #161616;
+        --yash-color-on-surface: #f2f4f8;
+        --yash-color-surface-elevated: #262626;
+        --yash-color-on-surface-elevated: #f2f4f8;
+        --yash-color-border: #343a3f;
+        --yash-color-border-strong: #4d5358;
+    }
+}

@@ -1,0 +1,63 @@
+{
+    "name": "yash-design-system",
+    "version": "0.1.0",
+    "description": "A modern, accessible, framework-agnostic Web Component library built with Lit and TypeScript",
+    "type": "module",
+    "main": "./dist/index.umd.cjs",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.js",
+            "require": "./dist/index.umd.cjs"
+        },
+        "./components/*": {
+            "types": "./dist/components/*.d.ts",
+            "import": "./dist/components/*.js"
+        }
+    },
+    "files": [
+        "dist",
+        "src"
+    ],
+    "scripts": {
+        "dev": "vite",
+        "build": "tsc && vite build",
+        "preview": "vite preview",
+        "clean": "rimraf dist",
+        "prepublishOnly": "npm run build",
+        "test": "web-test-runner --config ../../web-test-runner.config.js",
+        "test:watch": "web-test-runner --watch --config ../../web-test-runner.config.js"
+    },
+    "keywords": [
+        "web-components",
+        "lit",
+        "design-system",
+        "accessibility",
+        "typescript",
+        "custom-elements",
+        "shadow-dom",
+        "a11y",
+        "wcag",
+        "framework-agnostic"
+    ],
+    "author": "Yash Gavali",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/yourusername/yash-design-system.git"
+    },
+    "peerDependencies": {
+        "lit": "^3.0.0"
+    },
+    "dependencies": {
+        "lit": "^3.1.1"
+    },
+    "devDependencies": {
+        "rimraf": "^5.0.0",
+        "typescript": "^5.3.3",
+        "vite": "^5.0.11",
+        "vite-plugin-dts": "^3.7.1"
+    }
+}
