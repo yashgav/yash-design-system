@@ -8,12 +8,8 @@ on:
 
 jobs:
     test:
-                  cache: 'npm'
-                  cache-dependency-path: package-lock.json
         runs-on: ubuntu-latest
         steps:
-            - name: Install Playwright browsers and dependencies
-              uses: microsoft/playwright-github-action@v1
             - uses: actions/checkout@v4
             - name: Use Node.js
               uses: actions/setup-node@v4
