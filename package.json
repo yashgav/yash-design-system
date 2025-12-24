@@ -7,7 +7,7 @@
         "packages/*"
     ],
     "scripts": {
-        "build": "npm run build -w yash-design-system",
+        "build": "npm run build -w @yash-design-system/core",
         "ci": "npm run lint && npm test",
         "lint": "eslint . --ext .ts,.tsx --ignore-path .eslintignore",
         "lint:fix": "eslint . --ext .ts,.tsx --ignore-path .eslintignore --fix",

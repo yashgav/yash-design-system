@@ -1,4 +1,4 @@
-import axeCore from 'axe-core';
+import * as axeCore from 'axe-core';
 
 /**
  * Run axe-core against the given element or document body.

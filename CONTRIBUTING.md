@@ -126,6 +126,13 @@ npm publish --access public
 
 Note: `prepublishOnly` runs the build automatically to ensure artifacts are up-to-date.
 
+## Tokens and theming (publish notes)
+
+- The canonical token source is the CSS files in `packages/tokens/styles`.
+- Consumers should include the tokens via CSS imports or `<link>` tags. Avoid runtime JS injection.
+- The tokens package is published as `@yash-design-system/tokens`. Ensure your package registry
+  supports scoped packages and that the package name is updated before publishing.
+
 ## Code Style
 
 -- (linting and formatting steps removed)

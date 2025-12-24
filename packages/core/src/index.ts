@@ -1,6 +1,5 @@
 /**
- * Entry point for the core package
+ * Public entrypoint for the core package.
+ * Only export stable, public APIs here. Internal utilities should remain private.
  */
-export * from './utils/index.js';
-// Components will be exported from ./components as they are added
 export * from './components/button/button.js';
