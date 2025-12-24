@@ -21,11 +21,6 @@ import { LitElement, html, css, TemplateResult } from 'lit';
  * @cssprop --yash-focus-ring - Focus ring shadow (if using box-shadow)
  */
 export class UIButton extends LitElement {
-    static override shadowRootOptions = {
-        ...LitElement.shadowRootOptions,
-        mode: 'open',
-    };
-
     static override styles = css`
         :host {
             display: inline-block;
@@ -36,14 +31,14 @@ export class UIButton extends LitElement {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: var(--yash-spacing-8, 0.5rem);
+            gap: var(--yash-spacing-gap-sm, 0.5rem);
             font-family: var(--yash-font-family-base, sans-serif);
             font-size: var(--yash-font-size-body, 1rem);
             font-weight: var(--yash-font-weight-medium, 500);
             line-height: var(--yash-line-height-body, 1.5);
-            border-radius: var(--yash-radius-8, 0.5rem);
+            border-radius: var(--yash-radius-md, 0.5rem);
             border: 1px solid transparent;
-            padding: var(--yash-spacing-12, 0.75rem) var(--yash-spacing-16, 1rem);
+            padding: var(--yash-spacing-inset-sm, 0.75rem) var(--yash-spacing-inset-md, 1rem);
             cursor: pointer;
             user-select: none;
             background: transparent;
@@ -65,32 +60,50 @@ export class UIButton extends LitElement {
         }
 
         :host([variant='secondary']) button {
-            background: var(--yash-color-surface);
-            color: var(--yash-color-on-surface);
-            border-color: var(--yash-color-border);
+            background: var(--yash-color-secondary);
+            color: var(--yash-color-on-secondary);
+            border-color: var(--yash-color-secondary-border);
         }
 
         :host([variant='danger']) button {
-            background: var(--yash-color-error);
-            color: var(--yash-color-on-error);
+            background: var(--yash-color-danger);
+            color: var(--yash-color-on-danger);
         }
 
         /* Hover/active states */
-        button:hover:not(:disabled) {
-            filter: brightness(0.98);
+        /* Use tokenized hover/active styles */
+        :host([variant='primary']) button:hover:not(:disabled) {
+            background: var(--yash-color-primary-hover);
+            color: var(--yash-color-on-primary-hover);
         }
-        button:active:not(:disabled) {
-            filter: brightness(0.95);
+        :host([variant='primary']) button:active:not(:disabled) {
+            background: var(--yash-color-primary-active);
+            color: var(--yash-color-on-primary-active);
+        }
+        :host([variant='secondary']) button:hover:not(:disabled) {
+            background: var(--yash-color-secondary-hover);
+            color: var(--yash-color-on-secondary-hover);
+            border-color: var(--yash-color-secondary-border);
+        }
+        :host([variant='secondary']) button:active:not(:disabled) {
+            background: var(--yash-color-secondary-active);
+            color: var(--yash-color-on-secondary-active);
+            border-color: var(--yash-color-secondary-border);
+        }
+        :host([variant='danger']) button:hover:not(:disabled) {
+            background: var(--yash-color-danger-hover);
+            color: var(--yash-color-on-danger-hover);
+        }
+        :host([variant='danger']) button:active:not(:disabled) {
+            background: var(--yash-color-danger-active);
+            color: var(--yash-color-on-danger-active);
         }
 
         /* Focus-visible styles for accessibility */
         button:focus-visible {
             outline: none;
-            w: var(--yash-focus-ring, 0 0 0 2px var(--yash-focus-ring-color, currentColor));
-            box-shadow: var(
-                --yash-focus-ring,
-                0 0 0 2px var(--yash-focus-ring-color, currentColor)
-            );
+            /* Use composite focus ring token */
+            box-shadow: var(--yash-focus-ring);
         }
 
         /* Disabled state */
@@ -126,22 +139,12 @@ export class UIButton extends LitElement {
         this.type = this.type ?? 'button';
     }
 
-    private onClick = (e: Event) => {
-        if (this.disabled) {
-            e.stopImmediatePropagation();
-            e.preventDefault();
-        }
-    };
+    // Rely on native <button> behavior for disabled and keyboard activation.
+    // Avoid intercepting click events which can break composition and framework expectations.
 
     override render(): TemplateResult {
         return html`
-            <button
-                part="base"
-                class="base"
-                ?disabled=${this.disabled}
-                type=${this.type}
-                @click=${this.onClick}
-            >
+            <button part="base" class="base" ?disabled=${this.disabled} type=${this.type}>
                 <span part="label" class="label"><slot></slot></span>
             </button>
         `;
@@ -153,4 +156,6 @@ declare global {
         'ui-button': UIButton;
     }
 }
-customElements.define('ui-button', UIButton);
+if (!customElements.get('ui-button')) {
+    customElements.define('ui-button', UIButton);
+}

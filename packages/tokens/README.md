@@ -24,25 +24,28 @@ CSS-based design tokens for color, typography, spacing, radii, elevation, and mo
 
 ## Usage
 
-Import tokens in your app. You can load both `tokens.css` and your desired theme file.
+Import tokens in your app. The CSS files in `styles/` are the canonical source of truth for
+design tokens. Consumers should include these CSS files (via `<link>` or bundler import)
+instead of relying on any runtime JS injection. This ensures consistent SSR and avoids
+duplicate token definitions.
 
 ```html
 <!-- Global tokens -->
-<link rel="stylesheet" href="/node_modules/yash-design-system-tokens/styles/tokens.css" />
+<link rel="stylesheet" href="/node_modules/@yash-design-system/tokens/styles/tokens.css" />
 
 <!-- Light theme (explicit) -->
-<link rel="stylesheet" href="/node_modules/yash-design-system-tokens/styles/themes/light.css" />
+<link rel="stylesheet" href="/node_modules/@yash-design-system/tokens/styles/themes/light.css" />
 
 <!-- Or dark theme (explicit) -->
-<!-- <link rel="stylesheet" href="/node_modules/yash-design-system-tokens/styles/themes/dark.css" /> -->
+<!-- <link rel="stylesheet" href="/node_modules/@yash-design-system/tokens/styles/themes/dark.css" /> -->
 ```
 
 With bundlers, import in your entry file:
 
 ```ts
-import 'yash-design-system-tokens/styles/tokens.css';
-import 'yash-design-system-tokens/styles/themes/light.css';
-// or: import 'yash-design-system-tokens/styles/themes/dark.css';
+import '@yash-design-system/tokens/styles/tokens.css';
+import '@yash-design-system/tokens/styles/themes/light.css';
+// or: import '@yash-design-system/tokens/styles/themes/dark.css';
 ```
 
 ### Apply Themes
@@ -107,8 +110,8 @@ Consumers can override semantic tokens to theme their app.
 ## Example: Full Theme Switch Without JavaScript
 
 ```html
-<link rel="stylesheet" href="/node_modules/yash-design-system-tokens/styles/tokens.css" />
-<link rel="stylesheet" href="/node_modules/yash-design-system-tokens/styles/themes/light.css" />
+<link rel="stylesheet" href="/node_modules/@yash-design-system/tokens/styles/tokens.css" />
+<link rel="stylesheet" href="/node_modules/@yash-design-system/tokens/styles/themes/light.css" />
 
 <!-- Switch to dark via attribute -->
 <body data-theme="dark">

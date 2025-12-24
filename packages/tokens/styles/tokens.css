@@ -121,24 +121,25 @@
     --yash-color-on-surface: var(--yash-color-neutral-900);
 
     /* Elevated surfaces */
-    --yash-color-surface-elevated: #ffffff;
+    --yash-color-surface-elevated: var(--yash-color-neutral-50);
     --yash-color-on-surface-elevated: var(--yash-color-neutral-900);
 
     /* Primary actions */
     --yash-color-primary: var(--yash-color-blue-600);
     --yash-color-on-primary: #ffffff; /* Contrast ≥ 4.5:1 */
 
-    /* Secondary / accent */
-    --yash-color-accent: var(--yash-color-blue-500);
-    --yash-color-on-accent: #ffffff;
+    /* Secondary (unified naming; previously "accent") */
+    --yash-color-secondary: var(--yash-color-surface);
+    --yash-color-on-secondary: var(--yash-color-on-surface);
+    --yash-color-secondary-border: var(--yash-color-border);
 
     /* Feedback */
     --yash-color-success: var(--yash-color-green-600);
     --yash-color-on-success: #ffffff;
-    --yash-color-error: var(--yash-color-red-600);
-    --yash-color-on-error: #ffffff;
+    --yash-color-danger: var(--yash-color-red-600);
+    --yash-color-on-danger: #ffffff;
     --yash-color-warning: var(--yash-color-orange-600);
-    --yash-color-on-warning: #161616;
+    --yash-color-on-warning: var(--yash-color-neutral-900);
     --yash-color-info: var(--yash-color-cyan-600);
     --yash-color-on-info: #ffffff;
 
@@ -150,6 +151,28 @@
     --yash-focus-ring-color: var(--yash-color-blue-600);
     --yash-focus-ring-width: 2px;
     --yash-focus-ring-offset: 2px;
+    --yash-focus-ring: 0 0 0 var(--yash-focus-ring-width) var(--yash-focus-ring-color);
+}
+
+/* ===== Semantic: Interactive States ===== */
+:root {
+    /* Primary interactions */
+    --yash-color-primary-hover: var(--yash-color-blue-700);
+    --yash-color-on-primary-hover: #ffffff;
+    --yash-color-primary-active: var(--yash-color-blue-700);
+    --yash-color-on-primary-active: #ffffff;
+
+    /* Secondary interactions */
+    --yash-color-secondary-hover: var(--yash-color-neutral-100);
+    --yash-color-on-secondary-hover: var(--yash-color-neutral-900);
+    --yash-color-secondary-active: var(--yash-color-neutral-200);
+    --yash-color-on-secondary-active: var(--yash-color-neutral-900);
+
+    /* Danger interactions */
+    --yash-color-danger-hover: var(--yash-color-red-600);
+    --yash-color-on-danger-hover: #ffffff;
+    --yash-color-danger-active: var(--yash-color-red-700);
+    --yash-color-on-danger-active: #ffffff;
 }
 
 /* ===== Semantic: Typography Roles ===== */
@@ -176,5 +199,29 @@
         --yash-motion-duration-fast: 0ms;
         --yash-motion-duration-base: 0ms;
         --yash-motion-duration-slow: 0ms;
+    }
+
+    /* ===== Semantic: Spacing & Radius Aliases ===== */
+    :root {
+        /* Spacing aliases mapped to 8px scale */
+        --yash-spacing-inset-sm: var(--yash-spacing-12);
+        --yash-spacing-inset-md: var(--yash-spacing-16);
+        --yash-spacing-inset-lg: var(--yash-spacing-24);
+
+        --yash-spacing-gap-sm: var(--yash-spacing-8);
+        --yash-spacing-gap-md: var(--yash-spacing-12);
+        --yash-spacing-gap-lg: var(--yash-spacing-16);
+
+        /* Radius aliases */
+        --yash-radius-sm: var(--yash-radius-4);
+        --yash-radius-md: var(--yash-radius-8);
+        --yash-radius-lg: var(--yash-radius-12);
+    }
+
+    /* ===== Semantic: Elevation ===== */
+    :root {
+        --yash-elevation-none: none;
+        --yash-elevation-raised: var(--yash-shadow-2);
+        --yash-elevation-floating: var(--yash-shadow-3);
     }
 }

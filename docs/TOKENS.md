@@ -13,8 +13,8 @@ Design tokens are provided as CSS custom properties in `packages/tokens/styles/`
 Import tokens (global):
 
 ```css
-@import 'yash-design-system-tokens/styles/tokens.css';
-@import 'yash-design-system-tokens/styles/themes/light.css';
+@import '@yash-design-system/tokens/styles/tokens.css';
+@import '@yash-design-system/tokens/styles/themes/light.css';
 ```
 
 Or include them at runtime by adding them to the document head.

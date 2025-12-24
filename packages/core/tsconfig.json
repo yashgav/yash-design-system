@@ -16,12 +16,13 @@
         "noImplicitReturns": true,
         "noFallthroughCasesInSwitch": true,
         "noUncheckedIndexedAccess": true,
-        "moduleResolution": "bundler",
+        "moduleResolution": "node",
         "resolveJsonModule": true,
         "allowSyntheticDefaultImports": true,
         "esModuleInterop": true,
         "declaration": true,
-        "declarationMap": true,
+        "declarationMap": false,
+        "emitDeclarationOnly": true,
         "sourceMap": true,
         "outDir": "./dist",
         "rootDir": "./src",
@@ -34,5 +35,5 @@
         "composite": true
     },
     "include": ["src/**/*.ts"],
-    "exclude": ["node_modules", "dist", "**/*.spec.ts", "**/*.test.ts"]
+    "exclude": ["node_modules", "dist", "**/*.spec.ts", "**/*.test.ts", "**/*.stories.ts"]
 }

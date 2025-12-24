@@ -1,5 +1,5 @@
 {
-    "name": "yash-design-system-tokens",
+    "name": "@yash-design-system/tokens",
     "version": "0.1.0",
     "description": "CSS-based design tokens (light/dark themes) for Yash Design System",
     "type": "module",

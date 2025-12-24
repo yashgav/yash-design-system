@@ -1,7 +1,7 @@
 import type { Preview } from '@storybook/web-components';
-import 'yash-design-system-tokens/styles/tokens.css';
-import 'yash-design-system-tokens/styles/themes/light.css';
-import 'yash-design-system-tokens/styles/themes/dark.css';
+import '../packages/tokens/styles/tokens.css';
+import '../packages/tokens/styles/themes/light.css';
+import '../packages/tokens/styles/themes/dark.css';
 
 /**
  * Storybook preview configuration

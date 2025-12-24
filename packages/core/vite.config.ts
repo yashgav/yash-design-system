@@ -10,21 +10,34 @@ export default defineConfig({
         lib: {
             entry: resolve(__dirname, 'src/index.ts'),
             name: 'YashDesignSystem',
-            formats: ['es', 'umd'],
-            fileName: (format) => (format === 'es' ? 'index.js' : 'index.umd.cjs'),
+            formats: ['es', 'cjs'],
+            fileName: (format) => (format === 'es' ? 'index.js' : 'index.cjs'),
         },
         rollupOptions: {
             external: ['lit', /^lit\//],
-            output: {
-                preserveModules: true,
-                preserveModulesRoot: 'src',
-                globals: { lit: 'Lit' },
-            },
+            output: [
+                {
+                    format: 'es',
+                    preserveModules: true,
+                    preserveModulesRoot: 'src',
+                    entryFileNames: '[name].js',
+                    chunkFileNames: '[name].js',
+                    assetFileNames: '[name][extname]',
+                },
+                {
+                    format: 'cjs',
+                    preserveModules: true,
+                    preserveModulesRoot: 'src',
+                    entryFileNames: '[name].cjs',
+                    chunkFileNames: '[name].cjs',
+                    assetFileNames: '[name][extname]',
+                },
+            ],
         },
         sourcemap: true,
         target: 'es2020',
         minify: 'esbuild',
     },
-    plugins: [dts({ insertTypesEntry: true, rollupTypes: false })],
     optimizeDeps: { include: ['lit'] },
+    plugins: [dts({ insertTypesEntry: true, rollupTypes: false })],
 });

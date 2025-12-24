@@ -1,31 +1,40 @@
 /* Dark theme overrides (semantic tokens only) */
-:root,
 .yash-theme-dark,
 [data-theme='dark'] {
-    --yash-color-surface: #161616;
-    --yash-color-on-surface: #f2f4f8;
+    --yash-color-surface: var(--yash-color-neutral-800);
+    --yash-color-on-surface: var(--yash-color-neutral-50);
 
-    --yash-color-surface-elevated: #262626;
-    --yash-color-on-surface-elevated: #f2f4f8;
+    --yash-color-surface-elevated: var(--yash-color-neutral-700);
+    --yash-color-on-surface-elevated: var(--yash-color-neutral-50);
 
-    --yash-color-primary: #0f62fe; /* remains accessible */
+    --yash-color-primary: var(--yash-color-blue-600); /* remains accessible */
     --yash-color-on-primary: #ffffff;
 
-    --yash-color-accent: #4589ff;
-    --yash-color-on-accent: #ffffff;
+    /* Secondary unified semantics */
+    --yash-color-secondary: var(--yash-color-surface);
+    --yash-color-on-secondary: var(--yash-color-on-surface);
+    --yash-color-secondary-border: var(--yash-color-border);
+    --yash-color-secondary-hover: var(--yash-color-surface-elevated);
+    --yash-color-on-secondary-hover: var(--yash-color-on-surface-elevated);
+    --yash-color-secondary-active: var(--yash-color-neutral-700);
+    --yash-color-on-secondary-active: var(--yash-color-on-surface);
 
-    --yash-color-border: #343a3f;
-    --yash-color-border-strong: #4d5358;
+    --yash-color-border: var(--yash-color-neutral-700);
+    --yash-color-border-strong: var(--yash-color-neutral-600);
+    /* Focus ring tuned for dark surfaces */
+    --yash-focus-ring-color: var(--yash-color-blue-500);
 }
 
 /* Auto-apply dark theme based on user preference */
 @media (prefers-color-scheme: dark) {
-    :root {
-        --yash-color-surface: #161616;
-        --yash-color-on-surface: #f2f4f8;
-        --yash-color-surface-elevated: #262626;
-        --yash-color-on-surface-elevated: #f2f4f8;
-        --yash-color-border: #343a3f;
-        --yash-color-border-strong: #4d5358;
+    /* Apply dark defaults only when no explicit data-theme is set */
+    :root:not([data-theme]) {
+        --yash-color-surface: var(--yash-color-neutral-800);
+        --yash-color-on-surface: var(--yash-color-neutral-50);
+        --yash-color-surface-elevated: var(--yash-color-neutral-700);
+        --yash-color-on-surface-elevated: var(--yash-color-neutral-50);
+        --yash-color-border: var(--yash-color-neutral-700);
+        --yash-color-border-strong: var(--yash-color-neutral-600);
+        --yash-focus-ring-color: var(--yash-color-blue-500);
     }
 }

@@ -1,18 +1,19 @@
 /* Light theme overrides (semantic tokens only) */
-:root,
 .yash-theme-light,
 [data-theme='light'] {
     --yash-color-surface: var(--yash-color-neutral-50);
     --yash-color-on-surface: var(--yash-color-neutral-900);
 
-    --yash-color-surface-elevated: #ffffff;
+    --yash-color-surface-elevated: var(--yash-color-neutral-50);
     --yash-color-on-surface-elevated: var(--yash-color-neutral-900);
 
     --yash-color-primary: var(--yash-color-blue-600);
     --yash-color-on-primary: #ffffff;
 
-    --yash-color-accent: var(--yash-color-blue-500);
-    --yash-color-on-accent: #ffffff;
+    /* Secondary unified semantics */
+    --yash-color-secondary: var(--yash-color-surface);
+    --yash-color-on-secondary: var(--yash-color-on-surface);
+    --yash-color-secondary-border: var(--yash-color-border);
 
     --yash-color-border: var(--yash-color-neutral-200);
     --yash-color-border-strong: var(--yash-color-neutral-300);
